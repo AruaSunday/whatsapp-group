@@ -1,13 +1,27 @@
-Document.getElementById('form').add-addEventListener('submit', function(event)
+  document.getElementById('form')
+  .add-addEventListener('submit', function(event)
 {
     event.preventDefault();
 
-    const name =
-    document.getElementById('name'). value;
+    const fullname =
+    document.getElementById('fullname'). value;
+    console.log('fullname')
+
+    const email =
+    document.getElementById('email'). value;
+    console.log('email')
+
+    const reg_no =
+    document.getElementByIdreg_number
+    console.log('reg_no')
+
     const phone =
-    document.getElementById('phone'). value;
+    Document.getElementById('phone')
+    console.log('phone')
+
     const serise  =
     document.getElementById('series'). value;
+
     const check =
     document.getElementById('checkbox') 
 
