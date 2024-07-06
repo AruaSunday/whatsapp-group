@@ -87,22 +87,24 @@ h1{
     margin-bottom: 100px;
     position: fixed;
 }
-footer{
-  text-align: center;
-}
-label{
-  color: rgb(1, 127, 66);
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-weight: bold;
-  font-style: var(--font-bold);
-}
 input{
-  border-radius: 5px;
-  padding: 5px;
-  margin-top: 1rem;
+  border-radius: 40px;
+  border-bottom: solid rgb(1, 127, 66);
+  border-width: 0.5px;
+  border-top: none;
+  border-radius: 0px;
+  border-left: none;
+  border-right: none;
 }
 #series{
   margin-top: 1rem;
+  border-radius: 40px;
+  border-bottom: solid rgb(1, 127, 66);
+  border-width: 0.5px;
+  border-top: none;
+  border-radius: 0px;
+  border-left: none;
+  border-right: none;
 }
 .agree{
   color:var(--first-color-alt);
@@ -111,6 +113,7 @@ input{
   margin-top: 1px;
 }
 footer{
+  text-align: center;
   background-color: var(--first-color-alt);
   padding: 5px;
   color: rgb(131, 147, 160);
