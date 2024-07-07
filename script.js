@@ -13,26 +13,163 @@ firebase.initializeApp(firebaseConfig);
 // reference your database
 var contactFormDB = firebase.database().ref("classForm");
 
+let existing_data = [];
+contactFormDB.once('value', function(snapshot) {
+  var data = snapshot.val();
+  if (data) {
+      Object.keys(data).forEach(function(key) {
+          existing_data.push(data[key]);
+        });
+  }
+}, function(error) {
+  console.error("Error retrieving data:", error);
+});
+
 document.getElementById("form").addEventListener("submit", submitForm);
+// document.getElementById("ret").addEventListener("click", async () => {
+//   // alert('hgfd')
+//   // console.log(await existing_data);
+//   existing_data.filter(async function(item) {
+//     if (await item.emailid === 'edidiongsamuel14@gmaiil.com' || await item.regNumber === "272/SC/CO/1169" || await item.phoneNumber === "07042221248") {
+//       console.log('item',item);
+//       if (typeof(item) !== null) {
+//         console.log(item);
+//       } 
+//       return;
+//     }else{
+//       console.log('free');
+//     }
+//   });
+// });
+
+
+let submit_btn = document.getElementById("submit");
+let alertMessage = document.querySelector(".alert");
+
+
+document.getElementById('email').addEventListener('change', () => {
+  const emailInput = document.getElementById('email').value;
+
+  const emailExists = existing_data.some(item => item.emailid === emailInput);
+
+  if (emailExists) {
+    // console.log('Email already exists');
+    alertMessage.innerHTML = "Email already exists";
+    alertMessage.style.display = "block";
+    alertMessage.style.background = "red";
+    submit_btn.disabled = true;
+    submit_btn.style.opacity = "0.5";
+  } else {
+    alertMessage.innerHTML = "";
+    alertMessage.style.display = "none";
+    alertMessage.style.background = "transparent";
+    submit_btn.disabled = false;
+    submit_btn.style.opacity = "1";
+  }
+});
+
+document.getElementById('phone').addEventListener('change', () => {
+  const phoneInput = document.getElementById('phone').value;
+
+  const phoneExists = existing_data.some(item => item.phoneNumber === phoneInput);
+
+  if (phoneExists) {
+    // console.log('Email already exists');
+    alertMessage.innerHTML = "Whatsapp contact already exists";
+    alertMessage.style.display = "block";
+    alertMessage.style.background = "red";
+    submit_btn.disabled = true;
+    submit_btn.style.opacity = "0.5";
+  } else {
+    alertMessage.innerHTML = "";
+    alertMessage.style.display = "none";
+    alertMessage.style.background = "transparent";
+    submit_btn.disabled = false;
+    submit_btn.style.opacity = "1";
+  }
+});
+
+document.getElementById('reg_no').addEventListener('change', () => {
+  const regNoInput = document.getElementById('reg_no').value;
+  const seriesInput = document.getElementById('series').value;
+
+  const seriesSlice = seriesInput.slice(2, 4);
+  const series = regNoInput.slice(0, 2);
+  const dept = (regNoInput.slice(3, 8)).toUpperCase();
+  console.log(dept);
+
+  if (dept !== "SC/CO"){
+    alertMessage.innerHTML = "Registration number does not CSC department";
+    alertMessage.style.display = "block";
+    alertMessage.style.background = "red";
+    submit_btn.disabled = true;
+    submit_btn.style.opacity = "0.5";
+  } else {
+    alertMessage.innerHTML = "";
+    alertMessage.style.display = "none";
+    alertMessage.style.background = "transparent";
+    submit_btn.disabled = false;
+    submit_btn.style.opacity = "1";
+
+    if (series !== seriesSlice) {
+      alertMessage.innerHTML = "Registration number does not match series";
+      alertMessage.style.display = "block";
+      alertMessage.style.background = "red";
+      submit_btn.disabled = true;
+      submit_btn.style.opacity = "0.5";
+    } else {
+      alertMessage.innerHTML = "";
+      alertMessage.style.display = "none";
+      alertMessage.style.background = "transparent";
+      submit_btn.disabled = false;
+      submit_btn.style.opacity = "1";
+  
+      const regNoExists = existing_data.some(item => item.regNumber === regNoInput);
+  
+      if (regNoExists) {
+        // console.log('Email already exists');
+        alertMessage.innerHTML = "Reg number already exists";
+        alertMessage.style.display = "block";
+        alertMessage.style.background = "red";
+        submit_btn.disabled = true;
+        submit_btn.style.opacity = "0.5";
+      } else {
+        alertMessage.innerHTML = "";
+        alertMessage.style.display = "none";
+        alertMessage.style.background = "transparent";
+        submit_btn.disabled = false;
+        submit_btn.style.opacity = "1";
+      }
+    }
+  }
+  
+
+
+});
+
 
 
 function submitForm(e) {
     e.preventDefault();
-  
     var name = getElementVal("fullname");
     var emailid = getElementVal("email");
     var regNumber = getElementVal("reg_no");
     var phoneNumber = getElementVal("phone");    
     var series = getElementVal("series");
+    
   
     saveMessages(name,emailid,regNumber,phoneNumber,series);
   
     //   enable alert
-    document.querySelector(".alert").style.display = "block";
-  
+    alertMessage.innerHTML= "Details Have Been Saved.";
+    alertMessage.style.display = "block";
+    alertMessage.style.background = "rgb(0, 255, 106)";
+    
     //   remove the alert
     setTimeout(() => {
-      document.querySelector(".alert").style.display = "none";
+      alertMessage.innerHTML= "";
+      alertMessage.style.display = "none";
+      alertMessage.style.background = "transparent";
     }, 3000);
   
     //   reset the form
@@ -42,48 +179,8 @@ function submitForm(e) {
 
   }
 
-  document.getElementById('form')
-  .add-addEventListener('submit', function(event)
-{
-    event.preventDefault();
 
-    const fullname =
-    document.getElementById('fullname'). value;
-    console.log('fullname')
 
-    const email =
-    document.getElementById('email'). value;
-    console.log('email')
-
-    const reg_no =
-    document.getElementByIdreg_number
-    console.log('reg_no')
-
-    const phone =
-    Document.getElementById('phone')
-    console.log('phone')
-
-    const serise  =
-    document.getElementById('series'). value;
-
-    const check =
-    document.getElementById('checkbox') 
-
-    fetch('http://localhost:3000/submit,', {
-        method: 'POST,',
-        headers: {
-            'Const-Type': 'application/json',
-        },
-        body: JSON.stringify({name, phone, seres, checkbox}),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('success:', data);
-    })
-    .catch((error) => {
-        console.log('erroe:', error);
-    });
-});
 const saveMessages = (name, emailid, regNumber, phoneNumber,series) => {
     var newContactForm = contactFormDB.push();
   

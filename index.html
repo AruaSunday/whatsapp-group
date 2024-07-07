@@ -12,37 +12,43 @@
 </head>
 <body>
     <form action="" id="form">
-        <div class="alert">Details Have Been Saved.</div>
+        <!-- <button id="ret" style="background-color: red; z-index: 100;" type="button">retgvchgcfdfgvjhgcfxdcfv</button> -->
+        <div class="alert"></div>
         <h1>Computer Science WhatsApp-Form</h1>
+      <div id="content">
+        <select name="series" id="series">
+            <option value="0'22 series">0'22 Series</option>
+            <option value="0'23 series">0'23 Series</option>
+            </select>
+            <!-- <br> -->
         <input type="text" id="fullname" name="name" placeholder="Full Name" required>
-        <br>
+        <!-- <br> -->
 
         <input type="email" id="email" name="email" class="email" placeholder="Email Address" required>
-        <br>
+        <!-- <br> -->
 
         <input type="text" id="reg_no" name="reg_no" placeholder="Reg No. 22/SC/CO/__" required>
-        <br>
+        <!-- <br> -->
 
         <input type="tel" id="phone" name="phone" placeholder="WhatsApp-Contact" required>
-        <br>
+        <!-- <br> -->
 
-        <select name="series" id="series">
-        <option value="0'22 series">0'22 Series</option>
-        <option value="0'23 series">0'23 Series</option>
-        </select>
-        <br>
+        
 
-        <input type="checkbox" name="checkbox" id="checkbox" required>
+        <div id="check">
+            <input type="checkbox" name="checkbox" id="checkbox" required>
         <span class="agree">I agree to the informations I provided above to be true.</span>
-        <br>
+        </div>
+        <!-- <br> -->
 
+      </div>
                <div class="inputBox">
-                <button type="submit">Submit</button>
+                <button type="submit" id="submit">Submit</button>
             </div>    
         <footer>
             Built By The Chairman, Arua Sunday & The Director Of Software, Gideon Jones
             For Computer Scienece 022/023 Series
-            <br>
+            <!-- <br> -->
         </footer>
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
