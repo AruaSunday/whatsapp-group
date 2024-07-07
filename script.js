@@ -84,14 +84,14 @@ function submitForm(e) {
         console.log('erroe:', error);
     });
 });
-const saveMessages = (name, emailid, phoneNumber,regNumber,series) => {
+const saveMessages = (name, emailid, regNumber, phoneNumber,series) => {
     var newContactForm = contactFormDB.push();
   
     newContactForm.set({
       name: name,
       emailid: emailid,
-      phoneNumber: phoneNumber,
       regNumber: regNumber,
+      phoneNumber: phoneNumber,
       series: series,
     });
   };
