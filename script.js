@@ -99,7 +99,7 @@ document.getElementById('reg_no').addEventListener('change', () => {
   console.log(dept);
 
   if (dept !== "SC/CO"){
-    alertMessage.innerHTML = "Registration number does not CSC department";
+    alertMessage.innerHTML = "Registration number does not matach CSC department";
     alertMessage.style.display = "block";
     alertMessage.style.background = "red";
     submit_btn.disabled = true;
