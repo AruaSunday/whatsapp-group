@@ -100,4 +100,3 @@ const saveMessages = (name, emailid, phoneNumber,regNumber,series) => {
     return document.getElementById(id).value;
   };
 
-alert("I am a CSC!");
