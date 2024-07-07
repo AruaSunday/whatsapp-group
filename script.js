@@ -41,4 +41,4 @@
     });
 });
 
-alert("hello world");
+alert("I am a CSC!");
