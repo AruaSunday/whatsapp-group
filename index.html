@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <form action="POST" id="form">
+    <form action="" id="form">
+        <div class="alert">Details Have Been Saved.</div>
         <h1>Computer Science WhatsApp-Form</h1>
         <input type="text" id="fullname" name="name" placeholder="Full Name" required>
         <br>
@@ -31,14 +32,16 @@
         <span class="agree">I agree to the informations I provided above to be true.</span>
         <br>
 
-        <a href="https://chat.whatsapp.com/Eff9Gf6KmbbGSTW0W1YslY " type="submit" class="button">Join The Group</a>
-    
+               <div class="inputBox">
+                <button type="submit">Submit</button>
+            </div>    
         <footer>
-            Built By The Chairman, Arua Sunday & Director Of Software Gideon Jones
+            Built By The Chairman, Arua Sunday & The Director Of Software, Gideon Jones
             For Computer Scienece 022/023 Series
             <br>
         </footer>
     </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
