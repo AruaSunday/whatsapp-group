@@ -1,4 +1,4 @@
-:root{
+/* :root{
     --header-height: 3rem;
     --first-color: #000000 ;
     --first-color-alt: #032329;
@@ -111,7 +111,7 @@ input:focus{
   color:var(--first-color-alt);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
-  /* margin-top: 1px; */
+
   padding-top: 0.5rem;
 }
 footer{
@@ -158,11 +158,11 @@ footer{
 
 .alert{
   width: 100%;
-  /* background: rgb(0, 255, 106); */
+ 
   padding: 10px 0 10px 0;
   border-radius: 5px;
   text-align: center;
   font-size: 18px;
   font-weight: 900;
   display: none;
-}
+} */
