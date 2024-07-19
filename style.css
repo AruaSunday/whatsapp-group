@@ -47,12 +47,20 @@ html {
     align-items: center;
     min-height: 100vh;
 }
+/* h1{
+  background-color: rgb(1, 127, 66);
+  color: aliceblue;
+  padding: 6px;
+  border-radius: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+} */
 h1{
   background-color: rgb(1, 127, 66);
   color: aliceblue;
   padding: 6px;
   border-radius: 10px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: small;
 }
 #form{
     background-color: aliceblue;
@@ -132,6 +140,12 @@ footer{
   border-radius: 5px;
   overflow: hidden;
 }
+.click{
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
 .inputBox button{
   width: 100%;    
   padding: 10px 20px;
@@ -144,8 +158,25 @@ footer{
   cursor: pointer;
   
 }
+.click{
+  width: 100%;    
+  padding: 10px 20px;
+  border: none;
+  border-radius: 7px;
+  outline: none;
+  background:  rgb(1, 127, 66);
+  color: #FFF;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
 
 .inputBox button:hover{
+  background: var(--first-color-alt);
+  transition: all 0.3s ease;
+}
+.click:hover{
   background: var(--first-color-alt);
   transition: all 0.3s ease;
 }
